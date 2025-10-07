@@ -1,0 +1,46 @@
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <DesktopAcrylicBackdrop/>
+    </Window.SystemBackdrop>
+    <Grid Loaded="OnWindowLoaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="AppTitleBar" Margin="48,0,0,0" Height="48" Canvas.ZIndex="1">
+            <Image Source="https://www.bilibili.com/favicon.ico" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="AppTitleText" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="32,0,0,0">Ê¾Àı</TextBlock>
+        </Grid>
+        <NavigationView x:Name="MainNavView"
+                        SelectionChanged="OnNavigationSelectionChanged"
+                        PaneDisplayMode="Auto"
+                        DisplayModeChanged="OnDisplayModeChanged"
+                        BackRequested="OnBackRequested"
+                        Grid.RowSpan="2">
+            <NavigationView.MenuItems>
+                <NavigationViewItemHeader>Header1</NavigationViewItemHeader>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItem Content="Test1" Icon="Download" Tag="Test1"/>
+                <NavigationViewItemHeader>Header2</NavigationViewItemHeader>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItem Content="Test2" Icon="Download" Tag="Test2">
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem Content="RefTest1" Icon="Download" Tag="Test1"/>
+                        <NavigationViewItem Content="RefTest2" Icon="Download" Tag="Test2"/>
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.Resources>
+                <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
+            </NavigationView.Resources>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame"/>
+            </ScrollViewer>
+        </NavigationView>
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUIExample"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="TestButton" Click="OnButtonClick" HorizontalAlignment="Center" VerticalAlignment="Center">Î´µã»÷</Button>
+    </Grid>
+</Page>
